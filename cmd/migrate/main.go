@@ -1,5 +1,6 @@
 package main
 
+// main.go — Database migrations run කරන file එක
 import (
 	"database/sql"
 	"log"
