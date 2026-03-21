@@ -1,8 +1,8 @@
 package database
 
 import (
-	"database/sql"
 	"context"
+	"database/sql"
 	"time"
 )
 
@@ -42,7 +42,7 @@ func (m EventModel) Insert(event *Event) error {
 	return nil
 }
 
- func (m EventModel) GetAll() ([]*Event, error) {
+func (m EventModel) GetAll() ([]*Event, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
