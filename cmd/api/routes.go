@@ -27,7 +27,9 @@ func (app *application) routes() http.Handler {
 
 		// Define attendance routes
 		v1.POST("/events/:id/attendees/:userId", app.addAttendeeToEvent)
+		v1.DELETE("/events/:id/attendees/:userId", app.deleteAttendeeFromEvent)
 		v1.GET("/events/:id/attendees", app.getAttendeesForEvent)
+		v1.GET("/users/:id/events", app.getEventsByAttendee)
 	}
 
 	return g
