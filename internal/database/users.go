@@ -50,3 +50,22 @@ func (m *UserModel) Get(id int) (*User, error) {
 	}
 	return &user, nil
 }
+
+//get user by email method
+func (m UserModel) GetByEmail(email string) (*User, error) {
+	query := `SELECT id, email, password, name FROM users WHERE email = $1`
+
+	var user User
+	err := m.DB.QueryRow(query, email).Scan(
+		&user.Id,
+		&user.Email,
+		&user.Password,
+		&user.Name,
+	)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &user, nil
+}
